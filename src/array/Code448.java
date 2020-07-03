@@ -1,0 +1,39 @@
+package array;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Code448 {
+
+
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+
+        List<Integer> list = new ArrayList<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int newIndex = Math.abs(nums[i]) - 1;
+            if(  nums[newIndex]>0){
+                nums[newIndex]*= -1;
+            }
+
+        }
+
+
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i]>0){
+                System.out.println(i+1);
+                list.add(i+1);
+            }
+        }
+
+        return list;
+
+    }
+
+
+    public static void main(String[] args) {
+
+        int[] array  = new int[]{3,3,2,1,4,5,6,4};
+        new Code448().findDisappearedNumbers(array);
+    }
+}
